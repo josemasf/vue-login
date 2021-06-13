@@ -75,9 +75,9 @@ const messageBus = new MessageBus();
     }
   },
    mounted: function() {
-    messageBus.subscribe("internalchannel", "showLogin", event => {
+    messageBus.subscribe("internalchannel", "login", event => {
       const tab = event.payload.tab;
-      console.log(tab, 'tab')
+      console.log(tab, 'tab')      
       this.dialog = true;
     });
   },
@@ -85,6 +85,7 @@ const messageBus = new MessageBus();
     validate() {
       if (this.$refs.loginForm.validate()) {
         // submit form to server/API here...
+        this.dialog=false;
       }
     },
     reset() {
@@ -94,8 +95,8 @@ const messageBus = new MessageBus();
       this.$refs.form.resetValidation();
     }
   },
-  data: () => ({
-    dialog: true,
+  data: () => ({      
+    dialog: process.env.development ? true : false,
     tab: 0,
     tabs: [
         {name:"Login", icon:"mdi-account"},
