@@ -3,9 +3,9 @@
             <div>
                 <v-tabs v-model="tab" show-arrows background-color="deep-purple accent-4" icons-and-text dark grow>
                     <v-tabs-slider color="purple darken-4"></v-tabs-slider>
-                    <v-tab v-for="i in tabs" :key="i">
-                        <v-icon large>{{ i.icon }}</v-icon>
-                        <div class="caption py-1">{{ i.name }}</div>
+                    <v-tab v-for="(tab, index) in tabs" :key="index">
+                        <v-icon large>{{ tab.icon }}</v-icon>
+                        <div class="caption py-1">{{ tab.name }}</div>
                     </v-tab>
                     <v-tab-item>
                         <v-card class="px-4">
@@ -98,7 +98,7 @@ const messageBus = new MessageBus();
     }
   },
   data: () => ({      
-    dialog: process.env.development ? true : false,
+    dialog: process.env.NODE_ENV === 'development' ? true : false,
     tab: 0,
     tabs: [
         {name:"Login", icon:"mdi-account"},
