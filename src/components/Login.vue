@@ -78,6 +78,8 @@ const messageBus = new MessageBus();
     messageBus.subscribe("internalchannel", "login", event => {
       const tab = event.payload.tab;
       console.log(tab, 'tab')      
+
+      this.tab = tab
       this.dialog = true;
     });
   },
