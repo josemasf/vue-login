@@ -95,7 +95,10 @@ const messageBus = new MessageBus();
     },
     resetValidation() {
       this.$refs.form.resetValidation();
-    }
+    },
+    onClickOutside () {
+        this.dialog = false
+      },
   },
   data: () => ({      
     dialog: process.env.NODE_ENV === 'development' ? true : false,
