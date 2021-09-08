@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="dialog" persistent max-width="600px" min-width="360px">
+    <v-dialog v-model="dialog" persistent max-width="600px" min-width="360px" >
             <div>
                 <v-tabs v-model="tab" show-arrows background-color="deep-purple accent-4" icons-and-text dark grow>
                     <v-tabs-slider color="purple darken-4"></v-tabs-slider>
